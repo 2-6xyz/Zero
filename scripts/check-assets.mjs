@@ -9,8 +9,7 @@ const expected = [
   { file: 'zforce-zf435-front.png', ratio: 1, role: 'gallery 1' },
   { file: 'zforce-zf435-details.png', ratio: 1, role: 'gallery 2' },
   { file: 'zforce-zf435-angles.png', ratio: 1, role: 'gallery 3' },
-  { file: 'zforce-zf435-hero-studio.png', ratio: 2, role: 'hero 1' },
-  { file: 'zforce-zf435-hero-lifestyle.png', ratio: 2, role: 'hero 2' },
+  { file: 'zforce-zf435-hero-studio.png', ratio: 2, role: 'hero' },
 ];
 
 /** Reads width/height from a PNG's IHDR chunk. */
@@ -45,5 +44,5 @@ if (missing > 0) {
   console.log(`\n${missing} image issue(s). Add the supplied files to public/images/ (see public/images/README.md).`);
   process.exitCode = 1;
 } else {
-  console.log('\nAll five supplied images are in place.');
+  console.log('\nAll four product images are in place.');
 }

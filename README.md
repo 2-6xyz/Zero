@@ -19,24 +19,22 @@ Workers assets). No server, database or secret is required for the storefront.
 
 ## Product images
 
-The five supplied PNGs are in `public/images/` with these names:
+The four product images used by the site are in `public/images/` with these names:
 
 | File | Role | Aspect |
 | --- | --- | --- |
 | `zforce-zf435-front.png` | Gallery 1 | 1:1 |
 | `zforce-zf435-details.png` | Gallery 2 | 1:1 |
 | `zforce-zf435-angles.png` | Gallery 3 | 1:1 |
-| `zforce-zf435-hero-studio.png` | Hero 1 | 2:1 |
-| `zforce-zf435-hero-lifestyle.png` | Hero 2 | 2:1 |
+| `zforce-zf435-hero-studio.png` | Hero | 2:1 |
 
 `npm run check:assets` verifies each file exists with the expected aspect ratio. If a
 file is missing, that slot shows a neutral "Product image unavailable" panel — no
 substitute product artwork is generated.
 
-The three gallery images use their full square frames. The hero photographs keep their
-2:1 composition on tablet and desktop. On phones, the studio shot fills a square frame
-and the lifestyle shot uses 3:2; only background is cropped, so the earbuds and case
-stay fully visible.
+The three gallery images use their full square frames. The hero photograph keeps its
+2:1 composition on tablet and desktop; on phones it fills a square frame with only the
+background cropped, so the earbuds and case stay fully visible.
 
 ## Pricing and content
 
@@ -85,7 +83,7 @@ src/
   hooks/                  focus trap, header-aware scrolling
   lib/                    currency formatting and order submission
   styles/                 tokens/base, layout, overlays
-public/images/            the five supplied product photographs
+public/images/            the four product photographs
 ```
 
 ## Deploy to Vercel
@@ -99,7 +97,7 @@ The project is configured for Vercel in `vercel.json` (Vite preset, `npm ci`,
 3. Optional: add `VITE_ORDER_ENDPOINT` under **Settings → Environment Variables**
    for Production and Preview, then redeploy to receive order requests. Without it,
    checkout stays in its clearly labelled local-only mode.
-4. The five product images are already committed in `public/images/`; redeploy after
+4. The four product images are already committed in `public/images/`; redeploy after
    replacing any of them.
 
 Or from the CLI:
@@ -115,4 +113,4 @@ Semantic landmarks, skip link, keyboard-operable gallery and hero slides, focus-
 drawer/dialog with Escape and focus restore, visible focus states, labelled form fields
 with inline errors, live regions for bag changes, and descriptive alt text.
 All animation is subtle, transform/opacity based, and disabled by
-`prefers-reduced-motion`. The hero does not autoplay; both images are selected manually.
+`prefers-reduced-motion`. The hero uses a single static studio photograph.

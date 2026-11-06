@@ -34,16 +34,10 @@ export const product = {
   price,
 } as const;
 
-export const heroImages: HeroImage[] = [
-  {
-    src: '/images/zforce-zf435-hero-studio.png',
-    alt: 'ZFORCE ZF-435 earbuds lifted from an open charging case on a lit studio pedestal, with orange light sweeping across the background.',
-  },
-  {
-    src: '/images/zforce-zf435-hero-lifestyle.png',
-    alt: 'ZFORCE ZF-435 earbuds resting beside an open charging case on a marble table, next to the words True Wireless Freedom.',
-  },
-];
+export const heroImage: HeroImage = {
+  src: '/images/zforce-zf435-hero-studio.png',
+  alt: 'ZFORCE ZF-435 earbuds lifted from an open charging case on a lit studio pedestal, with orange light sweeping across the background.',
+};
 
 export const galleryImages: GalleryImage[] = [
   {
