@@ -7,7 +7,7 @@ export function Footer({ onOpenCart }: { onOpenCart: () => void }) {
     <footer className="footer">
       <div className="container footer__inner">
         <a
-          className="wordmark wordmark--footer"
+          className="wordmark"
           href="#home"
           onClick={(event) => {
             event.preventDefault();
@@ -28,15 +28,6 @@ export function Footer({ onOpenCart }: { onOpenCart: () => void }) {
             Product
           </a>
           <a
-            href="#details"
-            onClick={(event) => {
-              event.preventDefault();
-              go('details');
-            }}
-          >
-            Details
-          </a>
-          <a
             href="#faq"
             onClick={(event) => {
               event.preventDefault();
@@ -50,10 +41,7 @@ export function Footer({ onOpenCart }: { onOpenCart: () => void }) {
           </button>
         </nav>
 
-        <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} ZFORCE</p>
-          <p>Prices in AED. Order requests only — no payment is collected here.</p>
-        </div>
+        <p className="footer__meta">© {new Date().getFullYear()} ZFORCE · Prices in AED</p>
       </div>
     </footer>
   );

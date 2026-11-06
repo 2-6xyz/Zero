@@ -11,7 +11,7 @@ import {
 import { price } from '../data/product';
 import { storeConfig } from '../config/store';
 
-const STORAGE_KEY = 'zforce.bag.v1';
+const STORAGE_KEY = 'zforce.bag.v2';
 
 interface Notice {
   id: number;

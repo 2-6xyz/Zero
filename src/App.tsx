@@ -1,14 +1,13 @@
 import { useCallback, useState } from 'react';
 import { CartProvider, useCart } from './cart/CartProvider';
+import { Campaign } from './components/Campaign';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutDialog } from './components/CheckoutDialog';
-import { Details } from './components/Details';
 import { Faq } from './components/Faq';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ProductSection } from './components/ProductSection';
-import { scrollToSection } from './hooks/useMotion';
 
 function CartAnnouncer() {
   const { notice } = useCart();
@@ -41,9 +40,9 @@ function Storefront() {
       <Header onOpenCart={openCart} />
 
       <main id="main">
-        <Hero onShopNow={() => scrollToSection('product')} />
-        <ProductSection onOpenCart={openCart} />
-        <Details />
+        <Hero onOpenCart={openCart} />
+        <ProductSection />
+        <Campaign />
         <Faq />
       </main>
 

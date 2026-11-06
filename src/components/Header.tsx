@@ -31,7 +31,7 @@ export function Header({ onOpenCart }: HeaderProps) {
       if (event.key === 'Escape') setMenuOpen(false);
     };
     const onResize = () => {
-      if (window.innerWidth >= 900) setMenuOpen(false);
+      if (window.innerWidth >= 760) setMenuOpen(false);
     };
     document.addEventListener('keydown', onKeyDown);
     window.addEventListener('resize', onResize);
@@ -84,7 +84,8 @@ export function Header({ onOpenCart }: HeaderProps) {
             onClick={onOpenCart}
             aria-label={`Open bag, ${count} item${count === 1 ? '' : 's'}`}
           >
-            <BagIcon size={20} />
+            <BagIcon size={18} />
+            <span className="bag-button__label">Bag</span>
             <span className="bag-button__count" key={count} aria-hidden="true">
               {count}
             </span>

@@ -1,16 +1,17 @@
-import { BuyBox } from './BuyBox';
+import { Details } from './Details';
 import { Gallery } from './Gallery';
 
-export function ProductSection({ onOpenCart }: { onOpenCart: () => void }) {
+export function ProductSection() {
   return (
     <section id="product" className="product" aria-labelledby="product-title">
       <div className="container product__grid">
         <div className="product__gallery">
           <Gallery />
         </div>
-        <div className="product__buy">
-          <BuyBox onOpenCart={onOpenCart} />
-        </div>
+
+        <aside className="product__info">
+          <Details />
+        </aside>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import { galleryImages, price } from '../data/product';
 import { formatPrice } from '../lib/currency';
 import { scrollToSection } from '../hooks/useMotion';
 import { useFocusTrap } from '../hooks/useFocusTrap';
-import { BagIcon, CloseIcon } from './Icons';
+import { CloseIcon } from './Icons';
 import { OrderTotals } from './OrderTotals';
 import { ProductImage } from './ProductImage';
 import { QuantityStepper } from './QuantityStepper';
@@ -50,11 +50,8 @@ export function CartDrawer({ open, onClose, onCheckout }: CartDrawerProps) {
         <div className="drawer__body">
           {quantity === 0 || !frontImage ? (
             <div className="drawer__empty">
-              <span className="drawer__empty-icon" aria-hidden="true">
-                <BagIcon size={30} />
-              </span>
               <h3>Your bag is empty</h3>
-              <p>The ZF-435 is waiting — one colourway, AED 40.</p>
+              <p>The ZF-435 is available in one colourway.</p>
               <button
                 type="button"
                 className="button button--primary"
@@ -96,10 +93,7 @@ export function CartDrawer({ open, onClose, onCheckout }: CartDrawerProps) {
               </article>
 
               <OrderTotals />
-              <p className="drawer__note">
-                Shipping and taxes are not configured yet; they are confirmed with the merchant. No payment is collected
-                on this site.
-              </p>
+              <p className="drawer__note">Shipping is confirmed by the merchant before payment.</p>
             </>
           )}
         </div>

@@ -39,6 +39,11 @@ export const heroImage: HeroImage = {
   alt: 'ZFORCE ZF-435 earbuds lifted from an open charging case on a lit studio pedestal, with orange light sweeping across the background.',
 };
 
+export const campaignImage: HeroImage = {
+  src: '/images/zforce-zf435-hero-lifestyle.png',
+  alt: 'ZFORCE ZF-435 earbuds beside their open charging case on a pale marble table, with a glass vase and a book in the background.',
+};
+
 export const galleryImages: GalleryImage[] = [
   {
     src: '/images/zforce-zf435-front.png',
@@ -47,13 +52,13 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: '/images/zforce-zf435-details.png',
-    alt: 'ZFORCE ZF-435 detail collage: the open case with one earbud seated inside, both earbuds shown loose, the closed case with its charging port, and a close view of an earbud with water droplets.',
+    alt: 'ZFORCE ZF-435 details: the open case with one earbud seated inside, both earbuds shown loose, the closed case with its charging port, and a close view of an earbud.',
     caption: 'Earbuds, case and details',
   },
   {
     src: '/images/zforce-zf435-angles.png',
-    alt: 'ZFORCE ZF-435 views: the closed matte black case beside a pair of black earbuds with chrome-finish stem accents.',
-    caption: 'Closed case and earbuds',
+    alt: 'ZFORCE ZF-435 views: the open case from two angles, the closed matte black case, and a pair of black earbuds with chrome-finish stem accents.',
+    caption: 'Case and earbud angles',
   },
 ];
 
@@ -70,21 +75,16 @@ export const faqs = [
   {
     question: 'How do I place an order?',
     answer:
-      'Choose a quantity, add the ZF-435 to your bag and complete the order request with your delivery details. You will receive a reference number to keep.',
+      'Add the ZF-435 to your bag and submit an order request with your delivery details. You will receive a reference number to keep.',
   },
   {
-    question: 'When will I be charged?',
+    question: 'When do I pay?',
     answer:
-      'Nothing is collected on this site. Submitting creates an order request, and the merchant confirms payment, shipping cost and delivery separately.',
-  },
-  {
-    question: 'What are the full specifications?',
-    answer:
-      'Only details confirmed by the supplied product information are listed. Bluetooth version, playback time, charging input, water resistance and warranty are not specified, so they are not claimed here. The case is marked 400mAh.',
+      'Nothing is collected on this site. The merchant confirms payment, shipping cost and delivery after receiving your order request.',
   },
   {
     question: 'What is included?',
     answer:
-      'The supplied references show the earbuds and the charging case. Any other accessories, such as a charging cable or spare tips, are not specified.',
+      'The supplied references show the earbuds and the charging case. A charging cable, spare tips and other accessories are not specified.',
   },
 ] as const;

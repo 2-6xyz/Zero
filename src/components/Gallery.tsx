@@ -87,41 +87,55 @@ export function Gallery() {
               key={image.src}
               className="gallery__slide"
               aria-hidden={slideIndex !== index}
-              aria-label={`${slideIndex + 1} of ${galleryImages.length}: ${image.caption}`}
+              aria-label={image.caption}
               role="group"
             >
-              <ProductImage src={image.src} alt={image.alt} className="gallery__image" loading="lazy"                sizes="(max-width: 899px) 94vw, 50vw" />
+              <ProductImage
+                src={image.src}
+                alt={image.alt}
+                className="gallery__image"
+                loading={slideIndex === 0 ? 'eager' : 'lazy'}
+                sizes="(min-width: 980px) 68vw, 100vw"
+              />
             </div>
           ))}
         </div>
-
-        <div className="gallery__nav">
-          <button type="button" className="gallery__arrow" onClick={() => goTo(index - 1)} aria-label="Previous product image">
-            <ArrowLeftIcon size={18} />
-          </button>
-          <button type="button" className="gallery__arrow" onClick={() => goTo(index + 1)} aria-label="Next product image">
-            <ArrowRightIcon size={18} />
-          </button>
-        </div>
-
-        <p className="gallery__status" aria-live="polite">
-          Image {index + 1} of {galleryImages.length}: {galleryImages[index]?.caption}
-        </p>
       </div>
 
-      <div className="gallery__thumbs" role="group" aria-label="Choose a product image">
-        {galleryImages.map((image, thumbIndex) => (
-          <button
-            key={image.src}
-            type="button"
-            className={`gallery__thumb ${thumbIndex === index ? 'is-active' : ''}`}
-            onClick={() => setIndex(thumbIndex)}
-            aria-label={`Show image ${thumbIndex + 1}: ${image.caption}`}
-            aria-current={thumbIndex === index ? 'true' : undefined}
-          >
-            <ProductImage src={image.src} alt={image.caption} className="gallery__thumb-image" variant="compact" loading="lazy" />
+      <div className="gallery__bar">
+        <div className="gallery__thumbs" role="group" aria-label="Choose a product image">
+          {galleryImages.map((image, thumbIndex) => (
+            <button
+              key={image.src}
+              type="button"
+              className={`gallery__thumb ${thumbIndex === index ? 'is-active' : ''}`}
+              onClick={() => setIndex(thumbIndex)}
+              aria-label={image.caption}
+              aria-current={thumbIndex === index ? 'true' : undefined}
+            >
+              <ProductImage
+                src={image.src}
+                alt=""
+                className="gallery__thumb-image"
+                variant="compact"
+                loading="lazy"
+              />
+            </button>
+          ))}
+        </div>
+
+        <p className="sr-only" aria-live="polite">
+          {galleryImages[index]?.caption}
+        </p>
+
+        <div className="gallery__nav">
+          <button type="button" className="gallery__arrow" onClick={() => goTo(index - 1)} aria-label="Previous image">
+            <ArrowLeftIcon size={17} />
           </button>
-        ))}
+          <button type="button" className="gallery__arrow" onClick={() => goTo(index + 1)} aria-label="Next image">
+            <ArrowRightIcon size={17} />
+          </button>
+        </div>
       </div>
     </div>
   );

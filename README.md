@@ -19,7 +19,7 @@ Workers assets). No server, database or secret is required for the storefront.
 
 ## Product images
 
-The four product images used by the site are in `public/images/` with these names:
+The five product images used by the site are in `public/images/` with these names:
 
 | File | Role | Aspect |
 | --- | --- | --- |
@@ -27,14 +27,17 @@ The four product images used by the site are in `public/images/` with these name
 | `zforce-zf435-details.png` | Gallery 2 | 1:1 |
 | `zforce-zf435-angles.png` | Gallery 3 | 1:1 |
 | `zforce-zf435-hero-studio.png` | Hero | 2:1 |
+| `zforce-zf435-hero-lifestyle.png` | Campaign | 2:1 |
 
 `npm run check:assets` verifies each file exists with the expected aspect ratio. If a
 file is missing, that slot shows a neutral "Product image unavailable" panel — no
 substitute product artwork is generated.
 
-The three gallery images use their full square frames. The hero photograph keeps its
-2:1 composition on tablet and desktop; on phones it fills a square frame with only the
-background cropped, so the earbuds and case stay fully visible.
+The three gallery images sit on a warm square stage and blend into it, so the supplied
+white backgrounds disappear. The studio hero is art-directed to a 55% focal crop on all
+breakpoints, keeping both earbuds and the open case in frame. The lifestyle photograph
+is used in the campaign section, cropped to the case and away from the wordmark baked
+into the left side of the supplied file.
 
 ## Pricing and content
 
@@ -76,14 +79,14 @@ inventing values.
 src/
   App.tsx                 page shell, overlays and live region
   cart/CartProvider.tsx   single-product bag state, localStorage persistence
-  components/             header, hero, gallery, buy box, details, FAQ, footer,
-                          cart drawer, checkout dialog, shared UI
+  components/             header, hero, gallery, product facts, campaign, FAQ,
+                          footer, cart drawer, checkout dialog, shared UI
   config/store.ts         currency, delivery market, order endpoint, max quantity
   data/product.ts         pricing, images, confirmed details, FAQs
   hooks/                  focus trap, header-aware scrolling
   lib/                    currency formatting and order submission
   styles/                 tokens/base, layout, overlays
-public/images/            the four product photographs
+public/images/            the five product photographs
 ```
 
 ## Deploy to Vercel
@@ -97,7 +100,7 @@ The project is configured for Vercel in `vercel.json` (Vite preset, `npm ci`,
 3. Optional: add `VITE_ORDER_ENDPOINT` under **Settings → Environment Variables**
    for Production and Preview, then redeploy to receive order requests. Without it,
    checkout stays in its clearly labelled local-only mode.
-4. The four product images are already committed in `public/images/`; redeploy after
+4. The five product images are already committed in `public/images/`; redeploy after
    replacing any of them.
 
 Or from the CLI:
@@ -109,8 +112,15 @@ npx vercel --prod   # production deployment
 
 ## Accessibility and motion
 
-Semantic landmarks, skip link, keyboard-operable gallery and hero slides, focus-trapped
-drawer/dialog with Escape and focus restore, visible focus states, labelled form fields
-with inline errors, live regions for bag changes, and descriptive alt text.
-All animation is subtle, transform/opacity based, and disabled by
+Semantic landmarks, skip link, keyboard-operable gallery with swipe and thumbnails,
+focus-trapped drawer/dialog with Escape and focus restore, visible focus states,
+labelled form fields with inline errors, live regions for bag changes, and descriptive
+alt text. All animation is subtle, transform/opacity based, and disabled by
 `prefers-reduced-motion`. The hero uses a single static studio photograph.
+
+## Design method
+
+The interface was rebuilt using the [Unslop](https://github.com/heydamir/unslop) skill,
+installed at `.agents/skills/unslop/` (CC BY 4.0, by Damir Sokolovsky). The direction is
+warm paper, near-black ink and the orange case interior, with Instrument Serif for
+product figures and Instrument Sans for the interface.
