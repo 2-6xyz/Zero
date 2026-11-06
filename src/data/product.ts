@@ -53,7 +53,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: '/images/zforce-zf435-details.png',
-    alt: 'ZFORCE ZF-435 detail collage: an open case with both earbuds lifted out, the orange interior and a 400mAh battery marking.',
+    alt: 'ZFORCE ZF-435 detail collage: the open case with one earbud seated inside, both earbuds shown loose, the closed case with its charging port, and a close view of an earbud with water droplets.',
     caption: 'Earbuds, case and details',
   },
   {
