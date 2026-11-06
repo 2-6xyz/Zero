@@ -38,7 +38,7 @@ function Storefront() {
         Skip to content
       </a>
 
-      <Header onOpenCart={openCart} onShopNow={() => scrollToSection('product')} />
+      <Header onOpenCart={openCart} />
 
       <main id="main">
         <Hero onShopNow={() => scrollToSection('product')} />

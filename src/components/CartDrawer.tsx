@@ -38,7 +38,6 @@ export function CartDrawer({ open, onClose, onCheckout }: CartDrawerProps) {
       >
         <header className="drawer__head">
           <div>
-            <p className="eyebrow">Your selection</p>
             <h2 id="bag-title" className="drawer__title">
               Your bag <span className="drawer__count">({quantity})</span>
             </h2>
@@ -74,7 +73,6 @@ export function CartDrawer({ open, onClose, onCheckout }: CartDrawerProps) {
                   <ProductImage src={frontImage.src} alt={frontImage.alt} className="line-item__image" loading="lazy" />
                 </div>
                 <div className="line-item__body">
-                  <p className="line-item__brand">ZFORCE · ZF-435</p>
                   <h3 className="line-item__name">ZF-435 Wireless Earbuds</h3>
                   <p className="line-item__variant">Matte black / orange</p>
                   <p className="line-item__price">

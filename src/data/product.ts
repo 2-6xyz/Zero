@@ -63,57 +63,34 @@ export const galleryImages: GalleryImage[] = [
   },
 ];
 
-export const highlights = [
-  { title: 'Matte black shell', copy: 'A soft matte black charging case with a single front LED indicator.' },
-  { title: 'Orange interior', copy: 'The lid opens onto a vivid orange cradle shaped around each earbud.' },
-  { title: 'Chrome stem accents', copy: 'Black stems finished with chrome caps and the ZFORCE name printed alongside.' },
-  { title: '400mAh case marking', copy: 'The inside of the lid carries the marking Case Battery: 400mAh.' },
-] as const;
-
-export const specs: SpecRow[] = [
+export const confirmedDetails: SpecRow[] = [
   { label: 'Brand', value: 'ZFORCE' },
   { label: 'Model', value: 'ZF-435' },
-  { label: 'Product type', value: 'True Wireless Stereo (TWS) earbuds' },
-  { label: 'Colourway', value: 'Matte black case and earbuds, orange case interior' },
-  { label: 'Earbud finish', value: 'Black with silicone tips and chrome-finish stem caps' },
+  { label: 'Type', value: 'True Wireless Stereo earbuds' },
+  { label: 'Colour', value: 'Matte black, orange case interior' },
+  { label: 'Finish', value: 'Chrome stem accents' },
   { label: 'Case marking', value: 'Case Battery: 400mAh' },
-  { label: 'Connectivity', value: 'Not specified' },
-  { label: 'Battery runtime', value: 'Not specified' },
-  { label: 'Charging input', value: 'Not specified' },
-  { label: 'Water resistance', value: 'Not specified' },
-  { label: 'In the box', value: 'Earbuds and charging case; other accessories not specified' },
-  { label: 'Warranty', value: 'Not specified' },
 ];
 
 export const faqs = [
   {
     question: 'How do I place an order?',
     answer:
-      'Choose a quantity, add the ZF-435 to your bag and continue to the order form. You will review the price, add delivery details and submit an order request. No payment is collected on this site.',
+      'Choose a quantity, add the ZF-435 to your bag and complete the order request with your delivery details. You will receive a reference number to keep.',
   },
   {
-    question: 'Which devices is the ZF-435 compatible with?',
+    question: 'When will I be charged?',
     answer:
-      'The ZF-435 is a true wireless stereo (TWS) earbud set. Bluetooth version, supported codecs and device-specific features are not specified in the product information supplied for this store, so we do not claim them here.',
+      'Nothing is collected on this site. Submitting creates an order request, and the merchant confirms payment, shipping cost and delivery separately.',
   },
   {
-    question: 'How does the charging case work?',
+    question: 'What are the full specifications?',
     answer:
-      'The case shows a marking of Case Battery: 400mAh inside the lid. Charging cable, input rating, charging time and playtime are not specified, so they are not published as specifications.',
+      'Only details confirmed by the supplied product information are listed. Bluetooth version, playback time, charging input, water resistance and warranty are not specified, so they are not claimed here. The case is marked 400mAh.',
   },
   {
-    question: 'What is included with the earbuds?',
+    question: 'What is included?',
     answer:
-      'The supplied product references show the pair of earbuds and the charging case. Any additional accessories, such as a charging cable or spare tips, are not specified.',
-  },
-  {
-    question: 'Is another colour available?',
-    answer:
-      'The ZF-435 is shown in a single colourway: a matte black case and earbuds with an orange case interior and chrome-finish stem accents.',
-  },
-  {
-    question: 'What happens after I submit an order request?',
-    answer:
-      'Your request is recorded with the details you enter and a reference number is generated. Payment, shipping cost and delivery timing are confirmed separately by the merchant — nothing is charged on this site.',
+      'The supplied references show the earbuds and the charging case. Any other accessories, such as a charging cable or spare tips, are not specified.',
   },
 ] as const;

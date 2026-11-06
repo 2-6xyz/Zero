@@ -18,6 +18,14 @@
   pointer-events: auto;
 }
 
+/* Dialog containers are focused programmatically, so no outline is needed. */
+.drawer:focus,
+.drawer:focus-visible,
+.checkout:focus,
+.checkout:focus-visible {
+  outline: none;
+}
+
 /* ---------- Cart drawer ---------- */
 .drawer {
   position: fixed;
@@ -56,7 +64,7 @@
 }
 
 .drawer__title {
-  margin-top: 6px;
+  margin-top: 0;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -143,16 +151,7 @@
   object-fit: contain;
 }
 
-.line-item__brand {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .line-item__name {
-  margin-top: 4px;
   font-size: 15.5px;
   font-weight: 600;
   letter-spacing: -0.015em;
@@ -182,13 +181,9 @@
 }
 
 .line-item__save {
-  padding: 3px 7px;
-  border-radius: 999px;
-  background: var(--orange-050);
   color: var(--orange-700);
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 .line-item__controls {
@@ -315,6 +310,12 @@
   }
 }
 
+.checkout__kicker {
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
 .checkout__head {
   display: flex;
   align-items: flex-start;
@@ -326,7 +327,7 @@
 }
 
 .checkout__title {
-  margin-top: 5px;
+  margin-top: 2px;
   font-size: clamp(21px, 3vw, 26px);
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -485,6 +486,12 @@
   font-weight: 400;
 }
 
+.review__save {
+  color: var(--orange-700);
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .review__controls {
   display: flex;
   align-items: center;
@@ -555,7 +562,6 @@
 }
 
 .form__intro h3 {
-  margin-top: 5px;
   font-size: clamp(19px, 2.6vw, 23px);
 }
 

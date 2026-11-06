@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useCart } from '../cart/CartProvider';
-import { price } from '../data/product';
-import { formatPrice } from '../lib/currency';
 import { scrollToSection } from '../hooks/useMotion';
 import { BagIcon, CloseIcon, MenuIcon } from './Icons';
 
 export const NAV_ITEMS = [
-  { label: 'Home', id: 'home' },
   { label: 'Product', id: 'product' },
   { label: 'Details', id: 'details' },
   { label: 'FAQ', id: 'faq' },
@@ -14,10 +11,9 @@ export const NAV_ITEMS = [
 
 interface HeaderProps {
   onOpenCart: () => void;
-  onShopNow: () => void;
 }
 
-export function Header({ onOpenCart, onShopNow }: HeaderProps) {
+export function Header({ onOpenCart }: HeaderProps) {
   const { count } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -63,7 +59,6 @@ export function Header({ onOpenCart, onShopNow }: HeaderProps) {
           aria-label="ZFORCE — back to top"
         >
           ZFORCE
-          <span className="wordmark__dot" aria-hidden="true" />
         </a>
 
         <nav className="header__nav" aria-label="Primary">
@@ -83,8 +78,13 @@ export function Header({ onOpenCart, onShopNow }: HeaderProps) {
         </nav>
 
         <div className="header__actions">
-          <button type="button" className="bag-button" onClick={onOpenCart} aria-label={`Open bag, ${count} item${count === 1 ? '' : 's'}`}>
-            <BagIcon size={21} />
+          <button
+            type="button"
+            className="bag-button"
+            onClick={onOpenCart}
+            aria-label={`Open bag, ${count} item${count === 1 ? '' : 's'}`}
+          >
+            <BagIcon size={20} />
             <span className="bag-button__count" key={count} aria-hidden="true">
               {count}
             </span>
@@ -115,30 +115,9 @@ export function Header({ onOpenCart, onShopNow }: HeaderProps) {
                 go(item.id);
               }}
             >
-              <span>{item.label}</span>
-              <span className="mobile-nav__index" aria-hidden="true">
-                0{index + 1}
-              </span>
+              {item.label}
             </a>
           ))}
-          <div className="mobile-nav__footer">
-            <div>
-              <span className="mobile-nav__label">ZF-435</span>
-              <span className="mobile-nav__price">
-                {formatPrice(price.sale)} <s>{formatPrice(price.compareAt)}</s>
-              </span>
-            </div>
-            <button
-              type="button"
-              className="button button--primary button--sm"
-              onClick={() => {
-                setMenuOpen(false);
-                onShopNow();
-              }}
-            >
-              Shop Now
-            </button>
-          </div>
         </nav>
       </div>
     </header>

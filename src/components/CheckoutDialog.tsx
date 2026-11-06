@@ -258,7 +258,7 @@ export function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
       >
         <header className="checkout__head">
           <div>
-            <p className="eyebrow">Order request · No payment</p>
+            <p className="checkout__kicker">Order request · No payment collected</p>
             <h2 id="checkout-title" className="checkout__title">
               {stepLabel}
             </h2>
@@ -395,12 +395,11 @@ export function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
                       />
                     </div>
                     <div className="review__info">
-                      <p className="eyebrow">ZFORCE · ZF-435</p>
                       <h3>ZF-435 Wireless Earbuds</h3>
                       <p className="review__variant">Matte black / orange</p>
                       <p className="review__price">
                         {formatPrice(price.sale)} <s>{formatPrice(price.compareAt)}</s>
-                        <span className="chip chip--save">Save {formatPrice(price.savings)}</span>
+                        <span className="review__save">Save {formatPrice(price.savings)}</span>
                       </p>
                       <div className="review__controls">
                         <QuantityStepper
@@ -456,7 +455,6 @@ export function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
                   }}
                 >
                   <div className="form__intro">
-                    <p className="eyebrow">Delivery details</p>
                     <h3>Where should the order go?</h3>
                     <p>Used only to confirm this order request. Nothing is charged.</p>
                   </div>

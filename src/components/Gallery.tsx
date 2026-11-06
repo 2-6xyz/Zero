@@ -90,7 +90,7 @@ export function Gallery() {
               aria-label={`${slideIndex + 1} of ${galleryImages.length}: ${image.caption}`}
               role="group"
             >
-              <ProductImage src={image.src} alt={image.alt} className="gallery__image" loading="lazy" sizes="(max-width: 899px) 92vw, 46vw" />
+              <ProductImage src={image.src} alt={image.alt} className="gallery__image" loading="lazy"                sizes="(max-width: 899px) 94vw, 50vw" />
             </div>
           ))}
         </div>
@@ -120,9 +120,6 @@ export function Gallery() {
             aria-current={thumbIndex === index ? 'true' : undefined}
           >
             <ProductImage src={image.src} alt={image.caption} className="gallery__thumb-image" variant="compact" loading="lazy" />
-            <span className="gallery__thumb-index" aria-hidden="true">
-              0{thumbIndex + 1}
-            </span>
           </button>
         ))}
       </div>

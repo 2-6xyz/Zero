@@ -17,33 +17,26 @@ npm run check:assets
 Deployment is static: `dist/` can be served by any static host (or mounted as
 Workers assets). No server, database or secret is required for the storefront.
 
-## Product images (required)
+## Product images
 
-The five supplied PNGs belong in `public/images/` with these exact names:
+The five supplied PNGs are in `public/images/` with these names:
 
-| Supplied file | Destination | Role |
+| File | Role | Aspect |
 | --- | --- | --- |
-| `assets/126583.png` | `public/images/zforce-zf435-front.png` | Gallery 1, 1:1 |
-| `assets/126587.png` | `public/images/zforce-zf435-details.png` | Gallery 2, 1:1 |
-| `assets/126586.png` | `public/images/zforce-zf435-angles.png` | Gallery 3, 1:1 |
-| `assets/126584.png` | `public/images/zforce-zf435-hero-studio.png` | Hero 1, 2:1 |
-| `assets/126585.png` | `public/images/zforce-zf435-hero-lifestyle.png` | Hero 2, 2:1 |
+| `zforce-zf435-front.png` | Gallery 1 | 1:1 |
+| `zforce-zf435-details.png` | Gallery 2 | 1:1 |
+| `zforce-zf435-angles.png` | Gallery 3 | 1:1 |
+| `zforce-zf435-hero-studio.png` | Hero 1 | 2:1 |
+| `zforce-zf435-hero-lifestyle.png` | Hero 2 | 2:1 |
 
-```bash
-cp assets/126583.png public/images/zforce-zf435-front.png
-cp assets/126587.png public/images/zforce-zf435-details.png
-cp assets/126586.png public/images/zforce-zf435-angles.png
-cp assets/126584.png public/images/zforce-zf435-hero-studio.png
-cp assets/126585.png public/images/zforce-zf435-hero-lifestyle.png
-npm run check:assets
-```
+`npm run check:assets` verifies each file exists with the expected aspect ratio. If a
+file is missing, that slot shows a neutral "Product image unavailable" panel — no
+substitute product artwork is generated.
 
-`check:assets` verifies each file exists with the expected aspect ratio. Until a file
-is present, that slot shows a neutral "Product image unavailable" panel — no substitute
-product artwork is generated, and the layout keeps its reserved space.
-
-The image containers match the supplied ratios (square gallery, 2:1 hero), so the
-photographs are shown complete and uncropped. Keep the originals as the source files.
+The three gallery images use their full square frames. The hero photographs keep their
+2:1 composition on tablet and desktop. On phones, the studio shot fills a square frame
+and the lifestyle shot uses 3:2; only background is cropped, so the earbuds and case
+stay fully visible.
 
 ## Pricing and content
 
@@ -56,10 +49,11 @@ savings: 60 - 40, // derived, never typed twice
 ```
 
 The copy deliberately contains only details confirmed by the brief and the supplied
-photographs: brand, model, TWS type, matte black shell, orange interior, silicone tips,
-chrome-finish stem caps and the `Case Battery: 400mAh` marking. Unconfirmed
-specifications are listed as "Not specified". There are no reviews, ratings, stock
-counts, delivery promises or payment-success claims anywhere on the site.
+photographs: brand, model, TWS type, matte black shell, orange interior, chrome-finish
+stem caps and the `Case Battery: 400mAh` marking. Unconfirmed specifications
+(Bluetooth version, playback time, water resistance, warranty) are not published at
+all. There are no reviews, ratings, stock counts, delivery promises or
+payment-success claims anywhere on the site.
 
 ## Orders and payment
 
@@ -87,8 +81,8 @@ src/
   components/             header, hero, gallery, buy box, details, FAQ, footer,
                           cart drawer, checkout dialog, shared UI
   config/store.ts         currency, delivery market, order endpoint, max quantity
-  data/product.ts         pricing, images, confirmed specs, FAQs
-  hooks/                  focus trap, reduced-motion helpers
+  data/product.ts         pricing, images, confirmed details, FAQs
+  hooks/                  focus trap, header-aware scrolling
   lib/                    currency formatting and order submission
   styles/                 tokens/base, layout, overlays
 public/images/            the five supplied product photographs
@@ -105,7 +99,8 @@ The project is configured for Vercel in `vercel.json` (Vite preset, `npm ci`,
 3. Optional: add `VITE_ORDER_ENDPOINT` under **Settings → Environment Variables**
    for Production and Preview, then redeploy to receive order requests. Without it,
    checkout stays in its clearly labelled local-only mode.
-4. Add the five product images to `public/images/` and redeploy when they are ready.
+4. The five product images are already committed in `public/images/`; redeploy after
+   replacing any of them.
 
 Or from the CLI:
 
@@ -116,9 +111,8 @@ npx vercel --prod   # production deployment
 
 ## Accessibility and motion
 
-Semantic landmarks, skip link, keyboard-operable gallery and carousel, focus-trapped
+Semantic landmarks, skip link, keyboard-operable gallery and hero slides, focus-trapped
 drawer/dialog with Escape and focus restore, visible focus states, labelled form fields
-with inline errors, live regions for bag changes, and collision-free alt text.
+with inline errors, live regions for bag changes, and descriptive alt text.
 All animation is subtle, transform/opacity based, and disabled by
-`prefers-reduced-motion`. The hero carousel pauses on hover/focus and stops autoplaying
-for reduced-motion users.
+`prefers-reduced-motion`. The hero does not autoplay; both images are selected manually.
