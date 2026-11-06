@@ -6,6 +6,8 @@
  * `orderEndpoint` to the URL that should receive submitted order requests.
  * While `orderEndpoint` is empty the checkout is clearly labelled as unconnected.
  */
+const orderEndpointFromEnv = import.meta.env.VITE_ORDER_ENDPOINT?.trim() ?? '';
+
 export const storeConfig = {
   /** ISO 4217 code used for every price on the site. */
   currency: 'AED',
@@ -14,8 +16,9 @@ export const storeConfig = {
   /**
    * POST target for order requests. Expected request: JSON `OrderRequest`
    * (see src/lib/orders.ts). Leave empty until a real backend is connected.
+   * Set VITE_ORDER_ENDPOINT at build time on Vercel instead of editing this file.
    */
-  orderEndpoint: '',
+  orderEndpoint: orderEndpointFromEnv,
   /** Optional support address; the footer only shows a contact row when set. */
   supportEmail: '',
   /** Maximum units per order request. */

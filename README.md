@@ -68,9 +68,11 @@ submits an **order request**. The confirmation states plainly that no payment wa
 
 - With `orderEndpoint` empty (default), the request is saved only in this browser
   (`localStorage`, key `zforce.orderRequests.v1`) and the UI says it was not sent.
-- Set `orderEndpoint` in `src/config/store.ts` to a POST URL to send requests as JSON
+- Set `VITE_ORDER_ENDPOINT` in the deployment environment (or `orderEndpoint` in
+  `src/config/store.ts` locally) to a POST URL to send requests as JSON
   (`OrderRequest` in `src/lib/orders.ts`). Successful responses must be `2xx`.
   The merchant then confirms price, shipping/payment method and delivery directly.
+  The variable is inlined at build time, so redeploy after changing it.
 
 Shipping cost, taxes, delivery times and payment methods are intentionally left
 unconfigured; the cart and checkout label them as set by the merchant instead of
@@ -90,6 +92,26 @@ src/
   lib/                    currency formatting and order submission
   styles/                 tokens/base, layout, overlays
 public/images/            the five supplied product photographs
+```
+
+## Deploy to Vercel
+
+The project is configured for Vercel in `vercel.json` (Vite preset, `npm ci`,
+`npm run build`, `dist/` output, immutable asset caching and basic security headers).
+
+1. Push the repository (already at `main`) and choose **Add New → Project** in Vercel.
+2. Import the repo. The Vite preset and build settings are detected from
+   `vercel.json`; no server, database or build secret is required.
+3. Optional: add `VITE_ORDER_ENDPOINT` under **Settings → Environment Variables**
+   for Production and Preview, then redeploy to receive order requests. Without it,
+   checkout stays in its clearly labelled local-only mode.
+4. Add the five product images to `public/images/` and redeploy when they are ready.
+
+Or from the CLI:
+
+```bash
+npx vercel          # preview deployment
+npx vercel --prod   # production deployment
 ```
 
 ## Accessibility and motion
